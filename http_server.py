@@ -6,6 +6,7 @@ image = modal.Image.from_dockerfile("Dockerfile").add_local_file("D:/work/123/ap
 
 @app.function(
     image=image,
+    region="ap-southeast-1",  
     max_containers=1,       # 限制全球最多只拉起 1 个容器实例
     scaledown_window=300,   # 闲置 300 秒无请求自动休眠
     timeout=86400,
@@ -14,5 +15,4 @@ image = modal.Image.from_dockerfile("Dockerfile").add_local_file("D:/work/123/ap
 def run_server():
     import subprocess
     # 使用 Popen 后台非阻塞启动 Python 简易 HTTP 服务器
-
     subprocess.Popen(["python", "/root/app.py"])
