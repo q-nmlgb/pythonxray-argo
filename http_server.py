@@ -1,12 +1,12 @@
 import modal
 
-app = modal.App("simple")
+app = modal.App("simple11111")
 
-image = modal.Image.from_dockerfile("Dockerfile").add_local_file("./app.py", remote_path="/root/app.py")
+image = modal.Image.from_dockerfile("Dockerfile").add_local_file("D:/work/123/app.py", remote_path="/root/app.py")
 
 @app.function(
     image=image,
-    region="ap-southeast-1",  
+    #region="ap-southeast-1",  
     min_containers=1, 
     max_containers=1,       # 限制全球最多只拉起 1 个容器实例
     scaledown_window=300,   # 闲置 300 秒无请求自动休眠
@@ -16,4 +16,4 @@ image = modal.Image.from_dockerfile("Dockerfile").add_local_file("./app.py", rem
 def run_server():
     import subprocess
     # 使用 Popen 后台非阻塞启动 Python 简易 HTTP 服务器
-    subprocess.Popen(["python", "/root/app.py"])
+    subprocess.Popen(["python3", "/root/app.py"])
