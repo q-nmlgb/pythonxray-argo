@@ -8,4 +8,4 @@ RUN apt-get update && \
     chmod +x app.py && \
     pip install Flask requests
 
-CMD ["python", "app.py"]
+CMD ["python3", "/root/app.py"]
