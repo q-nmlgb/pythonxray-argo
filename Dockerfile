@@ -1,5 +1,5 @@
 FROM docker.io/meteor/galaxy-python:3.13.0
-WORKDIR /app
+WORKDIR /root
 COPY . .
 
 RUN apt-get update && \
